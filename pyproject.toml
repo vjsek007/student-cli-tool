@@ -9,3 +9,5 @@ description = "Simple CLI tool for students"
 requires-python = ">=3.8"
 dependencies = ["click"]
 student-cli-tool = "student_cli_tool.cli:hello"
+[project.scripts]
+student-cli-tool = "student_cli_tool.cli:hello"
