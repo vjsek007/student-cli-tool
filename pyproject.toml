@@ -1,0 +1,10 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "student-cli-tool"
+version = "0.1.0"
+description = "Simple CLI tool for students"
+requires-python = ">=3.8"
+dependencies = ["click"]
