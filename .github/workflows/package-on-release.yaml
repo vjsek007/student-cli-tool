@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # <--- CRITICAL: Allows the robot to see all Git Tags
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -19,9 +21,10 @@ jobs:
           python-version: '3.x'
 
       - name: Install build tools
-        run: python -m pip install build --user
+        run: python -m pip install build hatch-vcs --user
 
       - name: Build package
+	shell: bash
         run: python -m build --sdist --wheel
 
       - name: List dist contents

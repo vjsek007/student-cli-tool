@@ -1,13 +1,16 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"] # Added hatch-vcs
 build-backend = "hatchling.build"
+[tool.hatch.version]
+source = "vcs" # "vcs" stands for Version Control System (Git)
 
 [project]
 name = "student-cli-tool"
-version = "0.1.0"
+dynamic = ["version"]
 description = "Simple CLI tool for students"
 requires-python = ">=3.8"
 dependencies = ["click"]
-student-cli-tool = "student_cli_tool.cli:hello"
 [project.scripts]
 student-cli-tool = "student_cli_tool.cli:hello"
+[tool.hatch.build.targets.wheel]
+packages = ["src/student_cli_tool"]
